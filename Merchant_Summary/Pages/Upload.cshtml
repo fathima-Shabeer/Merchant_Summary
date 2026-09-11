@@ -1,0 +1,61 @@
+@page
+@model PdfChargesSummary.Pages.UploadModel
+@{
+    ViewData["Title"] = "Upload Monthly PDFs";
+}
+
+<div class="container">
+    <h1>Upload Settlement Reports</h1>
+    <p class="subtitle">
+        Select up to 30 daily settlement report PDFs. The system extracts the
+        POS Total, VAT, Commission, and Fee totals from each and combines them into one printable summary.
+    </p>
+
+    <form method="post" enctype="multipart/form-data" id="uploadForm">
+        <label class="dropzone" id="dropzone" for="fileInput">
+            <div class="dropzone-icon">PDF</div>
+            <p class="dropzone-text">Drop settlement reports here or click to browse</p>
+            <p class="dropzone-hint">Up to 30 files</p>
+            <input type="file" id="fileInput" name="Files" multiple accept="application/pdf" />
+        </label>
+
+        <div id="fileList"></div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Process &amp; Show Summary</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p class="error">@Model.ErrorMessage</p>
+    }
+</div>
+
+<script>
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    function renderFileList() {
+        const files = Array.from(fileInput.files);
+        fileList.innerHTML = files.length
+            ? `${files.length} file(s) selected: ` + files.map(f => f.name).join(', ')
+            : '';
+    }
+
+    fileInput.addEventListener('change', renderFileList);
+
+    ['dragenter', 'dragover'].forEach(evt =>
+        dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+
+    ['dragleave', 'drop'].forEach(evt =>
+        dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+
+    dropzone.addEventListener('drop', e => {
+        if (e.dataTransfer.files.length) {
+            fileInput.files = e.dataTransfer.files;
+            renderFileList();
+        }
+    });
+</script>

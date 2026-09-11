@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>14.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>Merchant_Summary	</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Free, MIT-licensed PDF text extraction library -->
+		<PackageReference Include="PdfPig" Version="0.1.9" />
+	</ItemGroup>
+
+</Project>

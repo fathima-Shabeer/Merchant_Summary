@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+:root {
+    --paper: #faf9f6;
+    --paper-2: #f1efe9;
+    --ink: #1b2430;
+    --ink-muted: #5b6472;
+    --rule: #d8d3c8;
+    --accent: #0b6e4f;
+    --accent-soft: #e4f1ec;
+    --warn: #9a5b13;
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+        --paper: #faf9f6;
+        --paper-2: #f1efe9;
+        --ink: #1b2430;
+        --ink-muted: #5b6472;
+        --rule: #d8d3c8;
+        --accent: #0b6e4f;
+        --accent-soft: #e4f1ec;
+        --warn: #9a5b13;
+        --warn-soft: #fbeedd;
+        --warn-border: #e8c48a;
+        --negative: #9b2c2c;
+        --radius: 4px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--paper-2);
+        margin: 0;
+        padding: 3rem 1.25rem;
+        color: var(--ink);
+        line-height: 1.5;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--paper);
+        padding: 2.75rem 3rem;
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+    }
+
+    h1 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 600;
+        font-size: 1.7rem;
+        margin: 0 0 0.3rem;
+        letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+        color: var(--ink-muted);
+        margin: 0 0 2rem;
+        font-size: 0.95rem;
+        max-width: 60ch;
+    }
+    /* ---------- Upload page: intake tray ---------- */
+
+    .dropzone {
+        display: block;
+        border: 1.5px dashed #a9a196;
+        border-radius: var(--radius);
+        padding: 2.75rem 1.5rem;
+        text-align: center;
+        background: var(--paper-2);
+        cursor: pointer;
+        transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+        .dropzone:hover, .dropzone.dragover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+    .dropzone-icon {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 0.85rem;
+        border: 1.5px solid var(--ink-muted);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-muted);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+
+    .dropzone-text {
+        font-weight: 500;
+        margin: 0 0 0.25rem;
+        color: var(--ink);
+    }
+
+    .dropzone-hint {
+        color: var(--ink-muted);
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    .dropzone input[type="file"] {
+        display: none;
+    }
+
+    #fileList {
+        margin: 1.25rem 0 0;
+        font-size: 0.85rem;
+        color: var(--ink-muted);
+        text-align: left;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    .form-actions {
+        margin-top: 1.75rem;
+    }
+    /* ---------- Buttons ---------- */
+
+    .btn-primary, .btn-secondary {
+        display: inline-block;
+        padding: 0.65rem 1.5rem;
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        font-size: 0.92rem;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background: var(--ink);
+        color: var(--paper);
+    }
+
+        .btn-primary:hover {
+            background: #0f151d;
+        }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--ink);
+        border-color: var(--rule);
+    }
+
+        .btn-secondary:hover {
+            border-color: var(--ink-muted);
+        }
+
+    .error {
+        color: var(--negative);
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+    /* ---------- Summary page: letterhead ---------- */
+
+    .summary-header {
+        margin-bottom: 1.75rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--rule);
+    }
+
+        .summary-header p {
+            color: var(--ink-muted);
+            margin: 0.15rem 0;
+            font-size: 0.88rem;
+        }
+    /* Tally strip — one continuous ledger total, not repeated cards */
+
+    .tally-strip {
+        display: flex;
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+        margin-bottom: 1.75rem;
+        overflow: hidden;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    .tally-item {
+        flex: 1;
+        padding: 0.9rem 1rem;
+        border-right: 1px solid var(--rule);
+    }
+
+        .tally-item:last-child {
+            border-right: none;
+        }
+
+        .tally-item.net {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .tally-item .label {
+            font-family: "Inter", sans-serif;
+            font-size: 0.72rem;
+            color: var(--ink-muted);
+            margin: 0 0 0.3rem;
+        }
+
+        .tally-item.net .label {
+            color: #c7ccd3;
+        }
+
+        .tally-item .value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+    /* Ledger table */
+
+    .table-scroll {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+    }
+
+    .summary-table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+    }
+
+        .summary-table th, .summary-table td {
+            padding: 0.6rem 0.85rem;
+            text-align: right;
+            font-family: "IBM Plex Mono", ui-monospace, monospace;
+        }
+
+            .summary-table th:nth-child(1), .summary-table th:nth-child(2), .summary-table th:nth-child(3),
+            .summary-table td:nth-child(1), .summary-table td:nth-child(2), .summary-table td:nth-child(3) {
+                text-align: left;
+            }
+
+        .summary-table thead th {
+            background: var(--paper-2);
+            font-family: "Inter", sans-serif;
+            font-weight: 500;
+            color: var(--ink-muted);
+            font-size: 0.76rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .summary-table tbody tr:nth-child(4n+1),
+        .summary-table tbody tr:nth-child(4n+2) {
+            background: #fdfcfa;
+        }
+
+        .summary-table td {
+            border-bottom: 1px solid #ece9e2;
+        }
+
+    .totals-row td {
+        font-weight: 600;
+        border-top: 2px solid var(--ink);
+        border-bottom: none;
+    }
+
+    .warning-row {
+        background: var(--warn-soft) !important;
+    }
+
+    .warning-note td {
+        font-family: "Inter", sans-serif;
+        color: var(--warn);
+        font-size: 0.8rem;
+        background: var(--warn-soft);
+        border-bottom: 1px solid var(--warn-border);
+        padding-top: 0;
+    }
+
+    .badge-warning {
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        background: var(--warn-soft);
+        color: var(--warn);
+        border: 1px solid var(--warn-border);
+        border-radius: 3px;
+        padding: 0.05rem 0.45rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        margin-left: 0.5rem;
+    }
+
+    .action-bar {
+        max-width: 900px;
+        margin: 1.5rem auto 0;
+        display: flex;
+        gap: 0.6rem;
+        justify-content: flex-end;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 1.75rem 1.25rem;
+        }
+
+        .tally-strip {
+            flex-wrap: wrap;
+        }
+
+        .tally-item {
+            flex: 1 1 50%;
+            border-bottom: 1px solid var(--rule);
+        }
+    }
+    /* Print-specific rules: hides buttons/nav, keeps only the report */
+    @media print {
+        body {
+            background: #fff;
+            padding: 0;
+        }
+
+        .container {
+            border: none;
+            padding: 0;
+        }
+
+        .no-print {
+            display: none !important;
+        }
+
+        .tally-strip {
+            break-inside: avoid;
+        }
+    }
+}
